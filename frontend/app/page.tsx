@@ -2,6 +2,7 @@
 import CreateChat from "@/components/CreateChat";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Navbar from "@/components/Navbar";
+import SearchChat from "@/components/SearchChat";
 import UserAccountNav from "@/components/UserAccountNav";
 import { useAuth } from "@/hooks";
 import { useWatchAuth } from "@/hooks/use-watch-auth";
@@ -13,12 +14,15 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center py-10 ">
       <Navbar /> 
-      <MaxWidthWrapper className="flex-1 flex flex-col items-center py-6  ">
+      <MaxWidthWrapper className="flex-1 flex flex-row justify-center gap-x-5 py-6  ">
         {/* Left side to create try and search a new chat */}
         <div>
           <CreateChat /> 
         </div>
         {/* Right side to try and join a chat  */}
+        <div>
+          <SearchChat /> 
+        </div>
       </MaxWidthWrapper>
     </main>
   );

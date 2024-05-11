@@ -30,6 +30,7 @@ export const useCreateChat = ()=>{
             router.push(`/chat/${data?.chat_id}`)
         },
         onError:(err:any)=>{
+            console.log(err)
             if(err instanceof AxiosError && err?.response?.data?.error?.message)
                 toast.error(`${err.response.data.error.message}`)
             else 

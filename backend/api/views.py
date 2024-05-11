@@ -79,4 +79,4 @@ def get_chat_with_messages(request):
             }
         }
         message_data.append(message_info)
-    return Response({'messages':message_data})
+    return Response({'chat_id':chat.id,'messages':message_data})
