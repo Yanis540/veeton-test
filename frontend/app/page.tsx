@@ -1,12 +1,25 @@
 'use client'
+import CreateChat from "@/components/CreateChat";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import Navbar from "@/components/Navbar";
+import UserAccountNav from "@/components/UserAccountNav";
+import { useAuth } from "@/hooks";
 import { useWatchAuth } from "@/hooks/use-watch-auth";
 import Image from "next/image";
 
 export default function Home() {
   useWatchAuth();
+  const {user} = useAuth();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-     <h2>HI</h2>
+    <main className="flex min-h-screen flex-col items-center py-10 ">
+      <Navbar /> 
+      <MaxWidthWrapper className="flex-1 flex flex-col items-center py-6  ">
+        {/* Left side to create try and search a new chat */}
+        <div>
+          <CreateChat /> 
+        </div>
+        {/* Right side to try and join a chat  */}
+      </MaxWidthWrapper>
     </main>
   );
 }
