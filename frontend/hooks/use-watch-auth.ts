@@ -43,7 +43,6 @@ export const useWatchAuth = ()=>{
     // ! Might cause an error ???? 
     useEffect(()=>{
         if(data?.user){
-            console.log(data.user)
             set_user(data?.user)
         }
      // eslint-disable-next-line react-hooks/exhaustive-deps

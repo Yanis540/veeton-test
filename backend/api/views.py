@@ -26,13 +26,12 @@ def get_user(request):
     except User.DoesNotExist:
         return Response({'message': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
     serializer = UserSerializer(user)
-    return Response(serializer.data)
+    return Response({'user':serializer.data})
 @api_view(['POST'])
 def send_message(request):
     content = request.data.get('content')
     user_id = request.data.get('user_id')
     chat_id = request.data.get('chat_id')
-    print("Hiii ",content,user_id,chat_id)
     if content is None or user_id is None or chat_id is None: 
         return Response({'message': 'Content or user ID is missing'}, status=status.HTTP_400_BAD_REQUEST)
     
