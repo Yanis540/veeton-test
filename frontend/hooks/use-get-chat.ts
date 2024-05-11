@@ -39,7 +39,6 @@ export const useGetChat = (id:string)=>{
         },
         onSuccess : (data:DataResponse)=>{
             set_chat({id:data?.chat_id} as Chat)
-            console.log(data?.messages)
             set_messages(data?.messages!)
         },
         onError:(err:any)=>{

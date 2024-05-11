@@ -36,23 +36,25 @@ function ChatPage({ }: ChatPageProps) {
         </main>
     )
     return (
-        <main className="flex h-screen flex-col items-center bg-background ">
+        <main className="flex h-screen flex-col  bg-background ">
             <Navbar />
-            <div className="flex-1 flex flex-col h-full  relative  w-full border">
-                {/* Header */}
-                <ChatHeader  />
-                {/* Body */}
-                <div className="flex-1 flex flex-col  items-start p-4  text-foreground relative overflow-y-auto border border-red-500">
-                    <div className='flex flex-col w-full space-y-4 '>
-                        {
-                            messages?.map((message, i) => (
-                                <Message key={message.id + " " + i} message={message} />
-                            ))
-                        }
+            <div className="flex-1 flex flex-col h-[calc(100vh-4rem)] w-full bg-background overflow-y-hidden">
+                <div className="flex-1 flex flex-col h-full  relative  w-full border border-gray-600">
+                    {/* Header */}
+                    <ChatHeader  />
+                    {/* Body */}
+                    <div className="flex-1 flex flex-col  items-start p-4  text-foreground relative overflow-y-auto ">
+                        <div className='flex flex-col w-full space-y-4 '>
+                            {
+                                messages?.map((message, i) => (
+                                    <Message key={message.id + " " + i} message={message} />
+                                ))
+                            }
+                        </div>
                     </div>
+                    {/* Footer */}
+                    <ChatFooter /> 
                 </div>
-                {/* Footer */}
-                <ChatFooter /> 
             </div>
         </main>
     );
