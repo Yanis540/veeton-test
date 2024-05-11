@@ -5,6 +5,7 @@ import QueryProvider from "@/context/QueryProvider";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -38,7 +39,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <QueryProvider>
+            <TooltipProvider>
             {children}
+            </TooltipProvider>
           </QueryProvider>
           <Toaster position="top-right" richColors />
         </ThemeProvider>

@@ -46,8 +46,17 @@ def send_message(request):
         
     message = Message(content=content, user=user,chat = chat)
     message.save()
-    serializer = MessageSerializer(message, many=False)
-    return Response(serializer.data,status=status.HTTP_201_CREATED)
+    message_info = {
+        'id': message.id,
+        'content': message.content,
+        'created_at': message.created_at,
+        'user':{
+            'id': message.user.id,
+            'name': message.user.name
+        }
+    }
+    # serializer = MessageSerializer(message, many=False)
+    return Response({'message':message_info},status=status.HTTP_201_CREATED)
     # return Response({'message': 'Message sent successfully',}, status=status.HTTP_201_CREATED)
     
     

@@ -16,6 +16,7 @@ declare global {
         id : string 
         content : string 
         created_at : Date
+        user : UserDetails
         chat_id : string 
         chat : Chat  
     }

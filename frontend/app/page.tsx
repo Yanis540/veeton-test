@@ -12,7 +12,7 @@ export default function Home() {
   useWatchAuth();
   const {user} = useAuth();
   return (
-    <main className="flex min-h-screen flex-col items-center py-10 ">
+    <main className="flex min-h-screen flex-col items-center py-10 bg-background ">
       <Navbar /> 
       <MaxWidthWrapper className="flex-1 flex flex-row justify-center gap-x-5 py-6  ">
         {/* Left side to create try and search a new chat */}
